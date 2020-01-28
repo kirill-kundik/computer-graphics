@@ -1,3 +1,4 @@
+import os
 import pathlib
 
 import numpy as np
@@ -14,7 +15,7 @@ def rgb2ycbcr(im):
     return ycbcr
 
 
-def draw_vectoroscope(ycbcr, out_size):
+def draw_vectoroscope(ycbcr, out_size, vec_name=""):
     im = np.zeros((out_size, out_size, 3), np.uint8)
     height, width, channels = ycbcr.shape
 
@@ -33,7 +34,7 @@ def draw_vectoroscope(ycbcr, out_size):
             new_j = int(cb / 255.0 * out_size)
             im.itemset((new_i, new_j, 1), y)
 
-    cv2.imshow("vectorscope", im)
+    cv2.imshow(f"vectorscope{'_' + vec_name if vec_name else ''}", im)
 
 
 if __name__ == "__main__":
@@ -44,5 +45,20 @@ if __name__ == "__main__":
     img = cv2.imread(str(img_path))
     cv2.imshow("origin", img)
 
-    draw_vectoroscope(rgb2ycbcr(img), 512)
+    ycbcr = rgb2ycbcr(img)
+
+    draw_vectoroscope(ycbcr, 512)
+
+    temp_img = "temp.png"
+
+    cv2.imwrite(temp_img, ycbcr)
+    img = cv2.imread(temp_img)
+    os.remove(temp_img)
+
+    cv2.imshow("ycbcr", img)
+
+    ycbcr = rgb2ycbcr(img)
+
+    draw_vectoroscope(ycbcr, 512, vec_name="ycbcr")
+
     cv2.waitKey(0)
