@@ -1,0 +1,52 @@
+
+    # # lines from sun
+    # mycv.draw_line(500, 400, 750, 400, blank_image, yellow)
+    # mycv.draw_line(50, 400, 300, 400, blank_image, yellow)
+    # mycv.draw_line(400, 500, 400, 750, blank_image, yellow)
+    # mycv.draw_line(400, 50, 400, 300, blank_image, yellow)
+    #
+    # mycv.draw_line(470, 470, 750, 750, blank_image, yellow)
+    # mycv.draw_line(345, 480, 50, 750, blank_image, yellow)
+    # mycv.draw_line(345, 315, 50, 50, blank_image, yellow)
+    # mycv.draw_line(470, 320, 750, 50, blank_image, yellow)
+    #
+    # # eyes and sun
+    # mycv.draw_circle(400, 400, 100, blank_image, yellow)
+    # mycv.draw_circle(350, 350, 10, blank_image, yellow)
+    # mycv.draw_circle(350, 450, 10, blank_image, yellow)
+    #
+    # # smile
+    # mycv.draw_line(400, 350, 450, 400, blank_image, yellow)
+    # mycv.draw_line(450, 400, 400, 450, blank_image, yellow)
+    #
+    # # e
+    # mycv.draw_line(750, 70, 720, 100, blank_image, yellow)
+    # mycv.draw_line(750, 70, 780, 100, blank_image, yellow)
+    # mycv.draw_line(750, 70, 750, 100, blank_image, yellow)
+    #
+    # # t
+    # mycv.draw_line(720, 120, 720, 150, blank_image, yellow)
+    # mycv.draw_line(720, 135, 780, 135, blank_image, yellow)
+    #
+    # # o
+    # mycv.draw_circle(750, 200, 30, blank_image, yellow)
+    #
+    # # c
+    # mycv.draw_line(750, 350, 720, 380, blank_image, yellow)
+    # mycv.draw_line(750, 350, 780, 380, blank_image, yellow)
+    #
+    # # a
+    # mycv.draw_line(780, 400, 720, 430, blank_image, yellow)
+    # mycv.draw_line(780, 460, 720, 430, blank_image, yellow)
+    # mycv.draw_line(750, 415, 750, 445, blank_image, yellow)
+    #
+    # # H
+    # mycv.draw_line(750, 470, 750, 500, blank_image, yellow)
+    # mycv.draw_line(720, 470, 780, 470, blank_image, yellow)
+    # mycv.draw_line(720, 500, 780, 500, blank_image, yellow)
+    #
+    # # R
+    # mycv.draw_line(735, 520, 720, 550, blank_image, yellow)
+    # mycv.draw_line(735, 520, 750, 550, blank_image, yellow)
+    # mycv.draw_line(780, 520, 750, 550, blank_image, yellow)
+    # mycv.draw_line(720, 550, 780, 550, blank_image, yellow)
