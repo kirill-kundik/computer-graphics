@@ -26,12 +26,12 @@ if __name__ == "__main__":
     theta_x = 0
     theta_z = 0
     frames = []
-    origin = [0, 180, 0]
+    origin = [0, 1, 0]
 
     for theta_y in range(0, frames_count):
-        print(f'rendering: \r{theta_y + 1} out of {frames_count} frames', end='')
-        theta_z += 0.
-        theta_x += 0.
+        print(f'\rrendering: {theta_y + 1} out of {frames_count} frames', end='')
+        theta_z += 1.
+        theta_x += 1.
 
         theta_y_1 = 180 - theta_y
 
