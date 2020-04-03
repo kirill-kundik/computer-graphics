@@ -87,18 +87,19 @@ def triangle(t0: Point, t1: Point, t2: Point, image, color):
 
     total_height: int = t2.y - t0.y
 
-    for y in range(t0.y, t1.y + 1):
-        segment_height: int = t1.y - t0.y + 1
-        alpha: float = (y - t0.y) / total_height
-        beta: float = (y - t0.y) / segment_height
+    for y in range(total_height):
+        second_half: bool = y > t1.y - t0.y or t1.y == t0.y
 
-        a = t0 + (t2 - t0) * alpha
-        b = t0 + (t1 - t0) * beta
-        image[y, a.x] = color
-        image[y, b.x] = color
+        segment_height: int = t2.y - t1.y if second_half else t1.y - t0.y
 
-        if a.x > b.x:
-            a, b = b, a
+        alpha: float = y / total_height
+        beta: float = float((y - (t1.y - t0.y if second_half else 0))) / segment_height
 
-        for j in range(a.x, b.x + 1):
-            image[y, j] = color
+        ax = t0 + (t2 - t0) * alpha
+        bx = t1 + (t2 - t1) * beta if second_half else t0 + (t1 - t0) * beta
+
+        if ax.x > bx.x:
+            ax, bx = bx, ax
+
+        for j in range(ax.x, bx.x + 1):
+            image[j, t0.y + y] = color

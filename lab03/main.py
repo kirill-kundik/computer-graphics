@@ -59,7 +59,7 @@ def face_model():
         cv2.drawContours(cv2_image, [np.array([(int(x0), int(y0)), (int(x1), int(y1)), (int(x2), int(y2))])], 0,
                          (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), -1)
 
-    cv2.imshow("mycv", blank_image)
+    cv2.imshow("mycv", np.rot90(blank_image, k=-1))
     cv2.imshow("cv2", cv2_image)
 
 
