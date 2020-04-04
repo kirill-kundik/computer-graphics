@@ -4,8 +4,8 @@ import cv2
 import numpy as np
 from OpenGL.GL import *
 
-from lab08.light import get_lighten_color
-from lab08.utils import project_with_angle, translate, circle, move_cycle, get_z_order
+from lab0809.light import get_lighten_color
+from lab0809.utils import project_with_angle, translate, circle, move_cycle, get_z_order
 
 
 class Model:
@@ -107,6 +107,8 @@ class Model:
     def draw_gl(self):
         glBegin(GL_TRIANGLES)
         for face, normal in self.faces_normals:
+            yield face
+
             v1, v2, v3 = face
             glNormal3f(*normal)
 

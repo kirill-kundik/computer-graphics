@@ -1,6 +1,6 @@
 import numpy as np
 
-from lab08.utils import LIGHT_VECTOR, VIEW_DIR, AMBIENT_COEFF, DIFFUSE_COEFF, SPECULAR_COEFF
+from lab0809.utils import LIGHT_VECTOR, VIEW_DIR, AMBIENT_COEFF, DIFFUSE_COEFF, SPECULAR_COEFF
 
 
 def get_lighten_color(face, original_color):

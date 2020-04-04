@@ -1,5 +1,5 @@
-from lab08.model import Model
-from lab08.my_open_gl import MyOpenGL
+from lab0809.model import Model
+from lab0809.my_open_gl import MyOpenGL
 
 if __name__ == "__main__":
     open_gl = MyOpenGL(800, 800)
