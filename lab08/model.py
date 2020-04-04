@@ -13,7 +13,8 @@ class Model:
         self.R = R
         self.r = r
         self.vertices_count = vertices_count
-        self.torus_translate = torus_translate
+        self.torus_translate = torus_translate \
+            if torus_translate is not None else [220, 220, 0]
 
         self.faces = []
         self.faces_normals = []
@@ -109,13 +110,13 @@ class Model:
             v1, v2, v3 = face
             glNormal3f(*normal)
 
-            glColor3fv((0.3, 0.8, 0.5))
+            glColor3fv((0.3, 0.1, 0.5))
             glVertex3fv(v1)
 
-            glColor3fv((0.9, 0.3, 0.5))
+            glColor3fv((0.9, 0.2, 0.5))
             glVertex3fv(v2)
 
-            glColor3fv((0.3, 0.5, 0.9))
+            glColor3fv((0.3, 0.3, 0.9))
             glVertex3fv(v3)
         glEnd()
 

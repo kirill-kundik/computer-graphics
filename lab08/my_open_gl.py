@@ -38,7 +38,7 @@ class MyOpenGL:
     @staticmethod
     def draw(objects):
         rotations = [0 for _ in objects]
-        light_angle = [0, 0, -1]
+        light_angle = [0, 0, 1]
 
         while True:
             light_angle = project_with_angle(light_angle, 0.1, 0.05, 0.025)

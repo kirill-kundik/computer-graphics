@@ -6,10 +6,9 @@ if __name__ == "__main__":
 
     r_big = (250, 170, 100)
     r_small = (40, 30, 20)
-    torus_translate = [200, 200, 0]
 
     toruses = [
-        Model(r_big[i], r_small[i], torus_translate).generate_gl()
+        Model(r_big[i], r_small[i], None).generate_gl()
         for i in range(3)
     ]
 
