@@ -9,7 +9,7 @@ from lab0809.utils import project_with_angle, translate, circle, move_cycle, get
 
 
 class Model:
-    def __init__(self, R, r, torus_translate, vertices_count=60):
+    def __init__(self, R, r, torus_translate, vertices_count=10):
         self.R = R
         self.r = r
         self.vertices_count = vertices_count

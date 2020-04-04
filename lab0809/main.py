@@ -5,11 +5,11 @@ if __name__ == "__main__":
     open_gl = MyOpenGL(800, 800)
 
     r_big = (250, 170, 100)
-    r_small = (40, 30, 20)
+    r_small = (30, 20, 10)
 
     toruses = [
         Model(r_big[i], r_small[i], None).generate_gl()
-        for i in range(3)
+        for i in range(1)
     ]
 
     open_gl.draw(toruses)

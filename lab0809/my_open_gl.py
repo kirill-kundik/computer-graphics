@@ -41,18 +41,18 @@ class MyOpenGL:
     @staticmethod
     def draw(objects):
         rotations = [0 for _ in objects]
-        light_angle = [0, 0, 1]
-        glRotatef(-40, 1, 0.2, 0)
+        # light_angle = [0, 0, 1]
+        glRotatef(-40, 1, .5, 0)
 
         while True:
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT)
 
-            # shadow_casters = []
-            # draw_bottom_plane()
+            shadow_casters = []
+            draw_bottom_plane()
 
-            light_angle = project_with_angle(light_angle, 0.1, 0.05, 0.025)
-
-            glLightfv(GL_LIGHT0, GL_POSITION, light_angle + [0])
+            # light_angle = project_with_angle(light_angle, 0.1, 0.05, 0.025)
+            #
+            # glLightfv(GL_LIGHT0, GL_POSITION, light_angle + [0])
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -67,21 +67,21 @@ class MyOpenGL:
                 glRotatef(rotations[tor_i], 0, 0, 1)
                 for face in tor.draw_gl():
                     rotation = np.radians(rotations[tor_i])
-                    # shadow_casters.append(
-                    #     [project_with_angle(v, theta_x=0, theta_y=-rotation, theta_z=-rotation) for v in face]
+                    shadow_casters.append(
+                        [project_with_angle(v, theta_x=0, theta_y=-rotation, theta_z=-rotation) for v in face]
                     # [rotate(v, theta_x=rotation) for v in face]
                     # [rotate(v, theta_y=-rotation) for v in face]
                     # [rotate(v, theta_z=-rotation) for v in face]
-                    # )
+                    )
 
                 glPopMatrix()
 
-            # glBegin(GL_TRIANGLES)
-            # for shadow_caster in shadow_casters:
-            #     glColor3fv((0, 0, 0))
-            #     for (x, y, z) in shadow_caster:
-            #         glVertex3fv((x, -349.5, z))
-            # glEnd()
+            glBegin(GL_TRIANGLES)
+            for shadow_caster in shadow_casters:
+                glColor3fv((0, 0, 0))
+                for (x, y, z) in shadow_caster:
+                    glVertex3fv((x, -349.5, z))
+            glEnd()
 
             pygame.display.flip()
             pygame.time.wait(10)
@@ -89,9 +89,9 @@ class MyOpenGL:
 
 def draw_bottom_plane():
     bottom_y = -350
-    size = 800
+    size = 1200
 
-    glColor3fv((1, 1, 1))
+    glColor3fv((.9, .3, .1))
     v1, v2, v3, v4 = \
         (-size / 2, bottom_y, -size / 2), \
         (-size / 2, bottom_y, size / 2), \
@@ -103,4 +103,4 @@ def draw_bottom_plane():
         glVertex3fv(v)
     glEnd()
 
-    return [0, 1, 0, bottom_y]
+    return [0, 0, 0, bottom_y]
